@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test2_Even_or_Odd"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Background="#f9d2d9">
     <Grid VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -20,20 +21,39 @@
                  Margin ="0,0,0,20"
                  FontSize="60"
                  TextAlignment="Center"
-                 VerticalContentAlignment="Center"></TextBox>
+                 VerticalContentAlignment="Center"
+                 Background="#fff6e4"
+                 Foreground="#84ccce"></TextBox>
         <Button x:Name = "Start_Judgement"
                 Grid.Row="1"
                 Click="Start_Judgement_Click"
                 Width="160"
                 Height="80"
                 Content="判定"
-                Margin ="0,0,0,20"></Button>
+                FontSize = "40"
+                FontWeight="bold"
+                Margin ="0,0,0,20">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#fff6e4"/>
+                    <Setter Property="Foreground" Value="#84ccce"/>
+
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#84ccce"/>
+                            <Setter Property="Foreground" Value="#fff6e4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
         <TextBlock x:Name = "Display_Result"
                    Grid.Row="2"
                    Width="250"
                    Height="100"
                    FontSize="60"
-                   TextAlignment="Center"></TextBlock>
-
+                   TextAlignment="Center"
+                   Foreground="#84ccce"></TextBlock>
     </Grid>
 </Window>
